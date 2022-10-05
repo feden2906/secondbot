@@ -4,6 +4,7 @@ const { doManicurePedicure, doEyeLashLips, doMaster, doStartStep, doChoiceDay, d
 
 const startStep = new Composer();
 startStep.action('salon', async (ctx) => {
+    await ctx.answerCbQuery();
     return doStartStep(ctx);
 })
 

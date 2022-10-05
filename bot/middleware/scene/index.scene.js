@@ -1,12 +1,11 @@
-const { Scenes, session } = require("telegraf");
-const bot = require("../../connection/token.connection");
+const { Scenes, session } = require('telegraf');
+const bot = require('../../connection/token.connection');
 
-const oneWizard = require("./oneWizard.scene");
-const twoWizard = require("./twoWizard.scene");
-const vacancyWizard = require("./vacancyWizard.scene");
-const salonWizard = require("./salonWizard.scene");
+const vacancyWizard = require('./vacancyWizard.scene');
+const salonWizard = require('./salonWizard.scene');
+const studyWizard = require('./studyWizard.scene');
 
-const stage = new Scenes.Stage([oneWizard, twoWizard, vacancyWizard, salonWizard]);
+const stage = new Scenes.Stage([vacancyWizard, salonWizard, studyWizard]);
 
 bot.use(session());
 bot.use(stage.middleware());

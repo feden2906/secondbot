@@ -1,12 +1,11 @@
-const { Markup } = require("telegraf");
 const bot = require("../../connection/token.connection");
-const { getUsers } = require('../../common/sequelize/user.sequelize');
 const { generateContent, generateFileName, generateFilePath, saveFile, sendFile, deleteFile } = require('../../common/users/input-output.user');
+const { getAllUsers } = require('../../common/models/user.model');
 
 module.exports = bot.command('all', async (ctx) => {
     try {
         //Get content
-        const users = await getUsers();
+        const users = await getAllUsers();
         const content = generateContent(users);
 
         const fileName = generateFileName();
